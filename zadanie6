@@ -1,0 +1,65 @@
+import { useState } from "react";
+
+
+
+export default function App() {
+
+  const [tasks, setTasks] = useState([
+
+    { id: 1, text: "Wstac z lozka ", completed: false },
+
+    { id: 2, text: "pojsc do szkoly (Opcjonalne)", completed: true },
+
+    { id: 3, text: "Pojsc na Silownie (Najwazniejsze)", completed: false },
+
+  ]);
+
+
+
+  const toggle = (id: number) =>
+
+    setTasks(tasks.map(t => t.id === id ? { ...t, completed: !t.completed } : t));
+
+  return (
+
+    <div>
+
+      <h1>Zadania do wykoniania:</h1>
+
+      <p>Niewykonane zadanka: {tasks.filter(t => !t.completed).length}</p>
+
+      <ul>
+
+        {tasks.map(t => (
+
+          <li key={t.id} style={{ textDecoration: t.completed ? "line-through" : "none" }}>
+
+
+
+            {t.text}{" "}
+
+            <button onClick={() => toggle(t.id)}>
+
+
+
+              {t.completed ? "Wykonane" : "Niewykonane"}
+
+
+
+            </button>
+
+          </li>
+
+        )
+
+        )
+
+        }
+
+      </ul>
+
+    </div>
+
+  );
+
+}
