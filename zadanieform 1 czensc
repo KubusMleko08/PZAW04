@@ -1,0 +1,61 @@
+import { useState } from "react";
+
+
+export default function Postac() {
+const [name ,  setname] = useState("");
+const [race ,  racename] = useState("");
+const [Class ,  Classname] = useState("");
+const [level ,  levelname] = useState("");
+const [describe ,  describename] = useState("");
+
+  return (
+    
+    <form>
+      <div>
+        <label htmlFor="name">Nazwa Stworzenia : </label>
+        <input id="name" name="name" type="text" minLength={3}  maxLength={20} required />
+      </div>
+
+      <div>
+        <label htmlFor="race">Rasa Stworu :</label>
+        <select id="characterRace">
+          <option value="warrior">Wojownik</option>
+          <option value="mage">Mag</option>
+          <option value="archer">Lucznik</option>
+          <option value="Knight">Rycerz</option>
+            
+        </select>
+      </div>
+
+      <div>
+        <label htmlFor="Class">Klasa : </label>
+        <select id="Class" >
+          <option value="warrior">Wojownik</option>
+          <option value="mage">Mag</option>
+          <option value="archer">Lucznik</option>
+          <option value="Knight">Rycerz</option>
+            
+        </select>
+      </div>
+
+      <div>
+        <label htmlFor="level">Poziom :</label>
+        <input id="level" name="level" type="number" min={1} max={100} />
+      </div>
+
+   <div>
+        <label htmlFor="describe">Nazwa Stworzenia : </label>
+        <input id="describe" name="describe" type="text" minLength={0}  maxLength={200} required />
+      </div>
+
+      <div>
+
+      </div>
+
+      <button type="submit">Utwórz postać</button>
+ 
+
+      
+    </form>
+  );
+}
